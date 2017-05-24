@@ -11,7 +11,7 @@ RUN cd cphalcon-${PHALCON_VERSION}/build && ./install
 RUN cd ../../ && rm -Rf cphalcon-${PHALCON_VERSION} && rm -Rf v${PHALCON_VERSION}
 RUN echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini
 
-RUN apt-get update && apt-get install -y libmcrypt-dev libxml2-dev libssl-dev
+RUN apt-get update && apt-get install -y libmcrypt-dev libxml2-dev libssl-dev libcurl4-gnutls-dev
 
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install mysqli
@@ -22,6 +22,7 @@ RUN docker-php-ext-install ftp
 RUN docker-php-ext-install sockets
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install mbstring
+RUN docker-php-ext-install opcache
 
 RUN apt-get autoremove -y && \
     apt-get autoclean -y && \
