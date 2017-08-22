@@ -23,6 +23,7 @@ RUN docker-php-ext-install sockets
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install opcache
+RUN docker-php-ext-install pcntl
 
 RUN apt-get autoremove -y && \
     apt-get autoclean -y && \
